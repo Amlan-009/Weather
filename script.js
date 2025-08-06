@@ -67,7 +67,6 @@ const getWeather = async () => {
 }
 
 
-document.querySelector(".search-btn").addEventListener("click",getWeather);
 document.addEventListener("keydown", (e) => {
   if(e.key === "Enter"){
     getWeather();
@@ -82,4 +81,5 @@ document.addEventListener("keydown", (e) => {
     document.querySelector(".container").style.height = height;
   }
 })
+
 
