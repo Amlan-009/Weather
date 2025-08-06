@@ -21,7 +21,7 @@ const getWeather = async () => {
   document.querySelector(".container").innerHTML=`
     <div class="search-container">
       <input type="text" class="city-input" placeholder="Search location">
-      <button class="search-btn"><i class='bx  bx-search'  ></i></button>
+      <button class="search-btn" onclick="getWeather()"><i class='bx  bx-search'  ></i></button>
     </div>
     <div class="place-time-container">
       <p><i class='bx  bx-location'  ></i> <span class="city-name-value">${data.name}</span></p>
@@ -65,6 +65,14 @@ const getWeather = async () => {
         image.src = "images/cloud.png";      
     }
 }
+
+
+document.querySelector(".search-btn").addEventListener("click",getWeather);
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Enter"){
+    getWeather();
+  }
+})
 const height = "600px"
 document.querySelector(".search-btn").addEventListener("click",() => {
   document.querySelector(".container").style.height = height;
@@ -75,9 +83,3 @@ document.addEventListener("keydown", (e) => {
   }
 })
 
-document.querySelector(".search-btn").addEventListener("click",getWeather);
-document.addEventListener("keydown", (e) => {
-  if(e.key === "Enter"){
-    getWeather();
-  }
-})
